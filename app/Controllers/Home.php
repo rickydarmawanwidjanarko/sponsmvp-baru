@@ -14,7 +14,7 @@ class Home extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'PPDB Online',
+            'title' => 'SPONS',
             'subtitle' => 'Home',
         ];
         return view('v_home', $data);
@@ -22,7 +22,7 @@ class Home extends BaseController
     public function Register()
     {
         $data = [
-            'title' => 'PPDB Online',
+            'title' => 'SPONS',
             'subtitle' => 'Home',
         ];
         return view('v_register', $data);

@@ -15,7 +15,7 @@ class user extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'PPDB Online',
+            'title' => 'SPONS',
             'subtitle' => 'user',
             'user' => $this->ModelUser->getAllData(),
         ];

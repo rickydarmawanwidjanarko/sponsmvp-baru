@@ -50,7 +50,7 @@ class Auth extends BaseController
                 session()->set('level', 'Admin');
                 return redirect()->to(base_url('Admin'));
             } else {
-                session()->setFlashdata('pesan', 'Email atau Password Salah !!!');
+                session()->setFlashdata('pesan', 'User atau Password Salah !!!');
                 return redirect()->to(base_url('auth/login'));
             }
         } else {

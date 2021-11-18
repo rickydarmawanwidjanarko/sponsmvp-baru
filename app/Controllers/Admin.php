@@ -16,7 +16,7 @@ class Admin extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'PPDB Online',
+            'title' => 'SPONS',
             'subtitle' => 'Dashboard',
         ];
         return view('admin/v_dashboard', $data);

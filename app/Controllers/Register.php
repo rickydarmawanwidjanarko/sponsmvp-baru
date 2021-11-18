@@ -14,7 +14,7 @@ class Register extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'PPDB Online',
+            'title' => 'SPONS',
             'subtitle' => 'Home',
         ];
         return view('v_register', $data);
