@@ -75,6 +75,7 @@
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
+                        <?php echo form_open('Register/simpanPendaftaran') ?>
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
@@ -85,23 +86,26 @@
                             <form id="quickForm">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama Sekolah</label>
-                                        <input type="text" name="Nama Sekolah" class="form-control" placeholder="Nama Sekolah">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Alamat Sekolah</label>
-                                        <input type="text" name="Alamat Sekolah" class="form-control" placeholder="Alamat Sekolah">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Telp Sekolah</label>
-                                        <input type="phone" name="phone" class="form-control" placeholder="No Telpon">
+                                        <label>Nama Sekolah</label>
+                                        <input name="nama" value="<?= old('nama') ?>" class="form-control" placeholder="Nama Sekolah">
+                                        <p class="text-danger"><?= $validation->hasError('nama') ? $validation->getError('nama') : '' ?></p>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        <input type="email" name="email" value="<?= old('email') ?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                        <p class="text-danger"><?= $validation->hasError('email') ? $validation->getError('email') : '' ?></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Alamat Sekolah</label>
+                                        <input name="alamat" value="<?= old('alamat') ?>" class="form-control" placeholder="Alamat Sekolah">
+                                        <p class="text-danger"><?= $validation->hasError('alamat') ? $validation->getError('alamat') : '' ?></p>
                                     </div>
 
-
+                                    <div class="form-group">
+                                        <label>Kota</label>
+                                        <input name="kota" value="<?= old('kota') ?>" class="form-control" placeholder="Kota">
+                                        <p class="text-danger"><?= $validation->hasError('kota') ? $validation->getError('kota') : '' ?></p>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
@@ -110,6 +114,7 @@
                             </form>
                         </div>
                         <!-- /.card -->
+                        <?php echo form_close() ?>
                     </div>
                     <!--/.col (left) -->
                     <!-- right column -->
