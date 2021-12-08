@@ -111,6 +111,19 @@
                                         <input name="kota" value="<?= old('kota') ?>" class="form-control" placeholder="Kota">
                                         <p class="text-danger"><?= $validation->hasError('kota') ? $validation->getError('kota') : '' ?></p>
                                     </div>
+                                    <div class="card-body">
+                                        <?php echo form_open_multipart('') ?>
+                                        <div class="text-left">
+                                            <img id="logo" class="img-fluid pad" src="<?= base_url('logo/') ?>" width="250px" height="250px">
+                                        </div>
+                                        <br>
+                                        <div class="from-group">
+                                            <label>Upload Logo</label>
+                                            <input id="logo" name="logo" type="file" class="from-control" accept="image/*">
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="btn btn-flat btn-primary"> Register</button>
+                                    </div>
 
                                 </div>
                                 <!-- /.card-body -->

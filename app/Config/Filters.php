@@ -19,8 +19,6 @@ class Filters extends BaseConfig
         'csrf'     => CSRF::class,
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
-        'filteruser' => \App\Filters\FiterUser::class,
-        'filtersiswa' => \App\Filters\FiterSiswa::class,
     ];
 
     /**
@@ -30,64 +28,8 @@ class Filters extends BaseConfig
      * @var array
      */
     public $globals = [
-        'before' => [
-            'filteruser' => ['except' => [
-                'auth', 'auth/*',
-                'home', 'home/*',
-                '/',
-                'ppdb', 'ppdb/*',
-                'pendaftaran', 'pendaftaran/*',
-                'wilayah', 'wilayah/*',
-                'petunjuk', 'petunjuk/*',
-                'harga', 'harga/*',
-                'potongan', 'potongan/*',
-            ]],
-            'filtersiswa' => ['except' => [
-                'auth', 'auth/*',
-                'home', 'home/*',
-                '/',
-                'ppdb', 'ppdb/*',
-                'pendaftaran', 'pendaftaran/*',
-                'wilayah', 'wilayah/*',
-                'petunjuk', 'petunjuk/*',
-            ]]
 
-        ],
         'after' => [
-            'filteruser' => ['except' => [
-                'auth', 'auth/*',
-                'home', 'home/*',
-                '/',
-                'ppdb', 'ppdb/*',
-                'pendaftaran', 'pendaftaran/*',
-                'admin', 'admin/*',
-                'pekerjaan', 'pekerjaan/*',
-                'agama', 'agama/*',
-                'user', 'user/*',
-                'penghasilan', 'penghasilan/*',
-                'ta', 'ta/*',
-                'jurusan', 'jurusan/*',
-                'Baner', 'Baner/*',
-                'jalurmasuk', 'jalurmasuk/*',
-                'lampiran', 'lampiran/*',
-                'wilayah', 'wilayah/*',
-                'pendaftaransiswa', 'pendaftaransiswa/*',
-                'petunjuk', 'petunjuk/*',
-                'kuisioner', 'kuisioner/*',
-                'harga', 'harga/*',
-                'potongan', 'potongan/*',
-            ]],
-            'filtersiswa' => ['except' => [
-                'auth', 'auth/*',
-                'home', 'home/*',
-                '/',
-                'ppdb', 'ppdb/*',
-                'pendaftaran', 'pendaftaran/*',
-                'siswa', 'siswa/*',
-                'wilayah', 'wilayah/*',
-                'petunjuk', 'petunjuk/*',
-
-            ]],
             'toolbar',
             // 'honeypot',
         ],
