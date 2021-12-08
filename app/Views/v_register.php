@@ -100,17 +100,21 @@
                                         <input name="alamat" value="<?= old('alamat') ?>" class="form-control" placeholder="Alamat Sekolah">
                                         <p class="text-danger"><?= $validation->hasError('alamat') ? $validation->getError('alamat') : '' ?></p>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">No Telpon</label>
+                                        <input type="telpon" name="no_telp" value="<?= old('no_telp') ?>" class="form-control" id="exampleInputEmail1" placeholder="No Telpon">
+                                        <p class="text-danger"><?= $validation->hasError('no_telp') ? $validation->getError('no_telp') : '' ?></p>
+                                    </div>
 
                                     <div class="form-group">
                                         <label>Kota</label>
                                         <input name="kota" value="<?= old('kota') ?>" class="form-control" placeholder="Kota">
                                         <p class="text-danger"><?= $validation->hasError('kota') ? $validation->getError('kota') : '' ?></p>
                                     </div>
+
                                 </div>
                                 <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Register</button>
-                                </div>
+
                             </form>
                         </div>
                         <!-- /.card -->

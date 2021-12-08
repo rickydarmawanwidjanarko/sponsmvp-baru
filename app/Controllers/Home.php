@@ -2,15 +2,8 @@
 
 namespace App\Controllers;
 
-
-use App\Models\ModelAdmin;
-
 class Home extends BaseController
 {
-    public function __construct()
-    {
-        $this->ModelAdmin = new ModelAdmin();
-    }
     public function index()
     {
         $data = [
@@ -19,11 +12,11 @@ class Home extends BaseController
         ];
         return view('v_home', $data);
     }
-    public function Register()
+    public function register()
     {
         $data = [
             'title' => 'SPONS',
-            'subtitle' => 'Home',
+            'subtitle' => 'Register',
         ];
         return view('v_register', $data);
     }

@@ -175,7 +175,7 @@
                             </ul>
                             <br>
                             <br>
-                            <a href="<?= base_url('Register/') ?>" class="btn-buy">Beli Sekarang</a>
+                            <a href="<?= base_url('Register') ?>" class="btn-buy">Beli Sekarang</a>
                         </div>
                     </div>
 
@@ -188,7 +188,7 @@
                             <ul>
                                 <li>Kuota 50 Siswa</li>
                             </ul>
-                            <a href="<?= base_url('Register/') ?>" class="btn-buy">Beli Sekarang</a>
+                            <a href="<?= base_url('Register') ?>" class="btn-buy">Beli Sekarang</a>
                         </div>
                     </div>
 
@@ -201,7 +201,7 @@
                             <ul>
                                 <li>Kuota 500 Siswa </li>
                             </ul>
-                            <a href="<?= base_url('Register/') ?>" class="btn-buy">Beli Sekarang</a>
+                            <a href="<?= base_url('Register') ?>" class="btn-buy">Beli Sekarang</a>
                         </div>
                     </div>
 
@@ -214,7 +214,7 @@
                             <ul>
                                 <li>Kuota Unlimited </li>
                             </ul>
-                            <a href="<?= base_url('Register/') ?>" class="btn-buy">Beli Sekarang</a>
+                            <a href="<?= base_url('Register') ?>" class="btn-buy">Beli Sekarang</a>
                         </div>
                     </div>
 

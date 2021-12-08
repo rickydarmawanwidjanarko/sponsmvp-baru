@@ -45,6 +45,13 @@ class Register extends BaseController
                     'required' => '{field} Wajib Diisi!'
                 ]
             ],
+            'no_telp'       => [
+                'label' => 'Telp',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib Diisi!'
+                ]
+            ],
             'kota'       => [
                 'label' => 'Kota',
                 'rules' => 'required',
@@ -54,23 +61,22 @@ class Register extends BaseController
             ],
         ])) {
             //Jika Tidak ada validasi maka simpan data
-
-
             $data = [
-
                 'nama' => $this->request->getPost('nama'),
                 'email' => $this->request->getPost('email'),
                 'alamat' => $this->request->getPost('alamat'),
-                'kota' => $this->request->getPost('kota'),
                 'password' => date('d - m - Y'),
+                'no_telp' => $this->request->getPost('no_telp'),
+                'kota' => $this->request->getPost('kota'),
+                'logo' => $this->request->getPost('logo'),
             ];
             $this->ModelRegister->insertData($data);
             session()->setFlashdata('pesan', 'Registrasi Berhasil, Silahkan Login');
-            return redirect()->to('Register/');
+            return redirect()->to('Register');
         } else {
             //Jika ada validasi
             $validation =  \Config\Services::validation();
-            return redirect()->to('Register/')->withInput()->with('validation', $validation);
+            return redirect()->to('Register')->withInput()->with('validation', $validation);
         }
     }
 }
