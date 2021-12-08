@@ -65,7 +65,7 @@ class Register extends BaseController
                 'nama' => $this->request->getPost('nama'),
                 'email' => $this->request->getPost('email'),
                 'alamat' => $this->request->getPost('alamat'),
-                'password' => date('d - m - Y'),
+                'password' => date('dmY'),
                 'no_telp' => $this->request->getPost('no_telp'),
                 'kota' => $this->request->getPost('kota'),
                 'logo' => $this->request->getPost('logo'),

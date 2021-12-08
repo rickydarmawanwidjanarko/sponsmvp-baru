@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ModelAdmin extends Model
+class ModelSiswa extends Model
 {
     public function getAllData()
     {
-        return $this->db->table('sekolah')
+        return $this->db->table('siswa')
             ->orderBy('id', 'ASC')
             ->get()
             ->getResultArray();
