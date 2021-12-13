@@ -43,15 +43,25 @@ class Auth extends BaseController
             //valid
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-            $cek_login = $this->ModelAuth->login_user($email, $password);
+            
+            // Cek login sekolah
+            $cek_login = $this->ModelAuth->login_sekolah($email, $password);
             if ($cek_login) {
                 session()->set('nama', $cek_login['nama']);
                 session()->set('email', $cek_login['email']);
                 session()->set('level', 'Admin');
                 return redirect()->to(base_url('Admin'));
             } else {
-                session()->setFlashdata('pesan', 'User atau Password Salah !!!');
-                return redirect()->to(base_url('auth/login'));
+                $cek_login = $this->ModelAuth->login_siswa($email, $password);
+                if ($cek_login) {
+                    session()->set('nama', $cek_login['nama']);
+                    session()->set('email', $cek_login['email']);
+                    session()->set('level', 'Siswa');
+                    return redirect()->to(base_url('Siswa'));
+                } else {   
+                    session()->setFlashdata('pesan', 'User atau Password Salah !!!');
+                    return redirect()->to(base_url('auth/login'));
+                }
             }
         } else {
             //tidak valid
