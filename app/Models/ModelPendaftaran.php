@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PendaftaranModel extends Model
+class ModelPendaftaran extends Model
 {
     protected $table            = 'pendaftaran';
     protected $useTimestamps    = false;

@@ -4,14 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelSiswa;
-use App\Models\SekolahModel;
+use App\Models\ModelSekolah;
 
 class Siswa extends BaseController
 {
     public function __construct()
     {
         $this->ModelSiswa = new ModelSiswa();
-        $this->sekolahModel = new SekolahModel();
+        $this->ModelSekolah = new ModelSekolah();
         helper('form');
     }
 
@@ -27,7 +27,7 @@ class Siswa extends BaseController
     public function get_sekolah()
     {
 
-        $sekolah = $this->sekolahModel->getSekolah();
+        $sekolah = $this->ModelSekolah->getSekolah();
 
         $data = [
             'title' => 'List Sekolah',
