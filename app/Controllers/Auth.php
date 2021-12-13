@@ -25,8 +25,8 @@ class Auth extends BaseController
     public function cek_login_user()
     {
         if ($this->validate([
-            'user' => [
-                'label' => 'User',
+            'email' => [
+                'label' => 'Email',
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Wajib diisi !!',
@@ -41,12 +41,12 @@ class Auth extends BaseController
             ]
         ])) {
             //valid
-            $user = $this->request->getPost('user');
+            $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-            $cek_login = $this->ModelAuth->login_user($user, $password);
+            $cek_login = $this->ModelAuth->login_user($email, $password);
             if ($cek_login) {
-                session()->set('nama_user', $cek_login['nama_user']);
-                session()->set('user', $cek_login['user']);
+                session()->set('nama', $cek_login['nama']);
+                session()->set('email', $cek_login['email']);
                 session()->set('level', 'Admin');
                 return redirect()->to(base_url('Admin'));
             } else {
@@ -62,8 +62,8 @@ class Auth extends BaseController
 
     public function logout()
     {
-        session()->remove('nama_user');
-        session()->remove('user');
+        session()->remove('nama');
+        session()->remove('email');
         session()->remove('level');
         session()->setFlashdata('pesan', 'Logout Succses');
         return redirect()->to(base_url('auth/login'));

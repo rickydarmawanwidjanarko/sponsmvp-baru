@@ -6,11 +6,11 @@ use CodeIgniter\Model;
 
 class ModelAuth extends Model
 {
-    public function login_user($user, $password)
+    public function login_user($email, $password)
     {
-        return $this->db->table('user')->where(
+        return $this->db->table('sekolah')->where(
             [
-                'user' => $user,
+                'email' => $email,
                 'password' => $password
             ]
         )->get()->getRowArray();

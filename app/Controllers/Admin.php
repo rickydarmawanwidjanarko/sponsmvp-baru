@@ -3,17 +3,17 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\GelombangModel;
+use App\Models\ModelGelombang;
 use App\Models\ModelAdmin;
-use App\Models\SekolahModel;
+use App\Models\ModelSekolah;
 
 class Admin extends BaseController
 {
     public function __construct()
     {
         $this->ModelAdmin = new ModelAdmin();
-        $this->sekolahModel = new SekolahModel();
-        $this->gelombangModel = new GelombangModel();
+        $this->ModelSekolah = new ModelSekolah();
+        $this->ModelGelombang = new ModelGelombang();
         helper('form');
     }
 
@@ -29,7 +29,7 @@ class Admin extends BaseController
     public function profile()
     {
         $id_sekolah = session()->get('id_sekolah');
-        $data_sekolah = $this->sekolahModel->getSekolah($id_sekolah);
+        $data_sekolah = $this->ModelSekolah->getSekolah($id_sekolah);
 
         $data = [
             'title' => 'Detail Sekolah',
@@ -42,7 +42,7 @@ class Admin extends BaseController
     public function list_gelombang()
     {
         $id_sekolah = session()->get('id_sekolah');
-        $data_gelombang = $this->gelombangModel->getGelombang($id_sekolah);
+        $data_gelombang = $this->ModelGelombang->getGelombang($id_sekolah);
 
         $data = [
             'title' => 'Detail Sekolah',
@@ -55,7 +55,7 @@ class Admin extends BaseController
     public function detail_gelombang($id_gelombang)
     {
         $id_sekolah = session()->get('id_sekolah');
-        $data_gelombang = $this->gelombangModel->getGelombang($id_sekolah, $id_gelombang);
+        $data_gelombang = $this->ModelGelombang->getGelombang($id_sekolah, $id_gelombang);
 
         $data = [
             'title' => 'Detail Sekolah',
