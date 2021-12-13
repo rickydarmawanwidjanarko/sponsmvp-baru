@@ -11,10 +11,10 @@ class GelombangModel extends Model
 
     protected $allowedFields = ['idsekolah', 'nama', 'detail', 'detail', 'persyaratan', 'tglawal', 'tglakhir'];
 
-    public function getGelombang($idsekolah = false)
+    public function getGelombang($idsekolah, $idgelombang = false)
     {
-        if ($idsekolah == false) {
-            return $this->findAll();
+        if ($idgelombang != false) {
+            return $this->where(['idgelombang' => $idgelombang])->findAll();
         }
 
         return $this->where(['idsekolah' => $idsekolah])->first();
