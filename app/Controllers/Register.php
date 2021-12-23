@@ -71,8 +71,8 @@ class Register extends BaseController
                 'logo' => $this->request->getPost('logo'),
             ];
             $this->ModelRegister->insertData($data);
-            session()->setFlashdata('pesan', 'Registrasi Berhasil, Silahkan Login');
-            return redirect()->to('Register');
+            session()->setFlashdata('pesan', 'Registrasi Berhasil, Silahkan hubungi Customer Service untuk mendapatkan password');
+            return redirect()->to('Auth/login');
         } else {
             //Jika ada validasi
             $validation =  \Config\Services::validation();
