@@ -22,11 +22,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1>DATA SEKOLAH</h1>
+                        <h1>List Sekolah</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
+        <?php
+        // echo "<pre>"; 
+        // print_r($schools);
+        // die;
+        ?>
 
         <!-- Main content -->
         <section class="content">
@@ -40,21 +45,21 @@
                                     <img class="profile-user-img img-fluid img-circle" src="<?= base_url('') ?>/AdminLTE/dist/img/user4-128x128.jpg" alt="User profile picture">
                                 </div>
 
-                                <h3 class="profile-username text-center">Nama Sekolah</h3>
+                                <h3 class="profile-username text-center"><?= $school['nama'] ?></h3>
 
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
-                                        <b>Alamat</b> <a class="float-right">Jl.blablabla</a>
+                                        <b>Alamat</b> <a class="float-right"><?= $school['alamat'] ?></a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Notelpon</b> <a class="float-right">nomor telpon</a>
+                                        <b>Kota</b> <a class="float-right"><?= $school['kota'] ?></a>
                                     </li>
-                                    <li class="list-group-item">
+                                    <!-- <li class="list-group-item">
                                         <b>Gelombang</b> <a class="float-right">gelombang</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
 
-                                <a href="#" class="btn btn-primary btn-block"><b>Daftar</b></a>
+                                <a href="" class="btn btn-primary btn-block"><b>Detail</b></a>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -62,11 +67,14 @@
                     </div>
 
 
-
                 </div>
+                
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>
+        <?php  foreach ($gelombangs as $gelombang) : ?>
+            
+        <?php endforeach; ?>
 
 
         <!-- /.content -->

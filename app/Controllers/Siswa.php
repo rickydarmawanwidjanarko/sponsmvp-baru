@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelGelombang;
 use App\Models\ModelSiswa;
 use App\Models\ModelSekolah;
 
@@ -12,6 +13,7 @@ class Siswa extends BaseController
     {
         $this->ModelSiswa = new ModelSiswa();
         $this->ModelSekolah = new ModelSekolah();
+        $this->ModelGelombang = new ModelGelombang();
         helper('form');
     }
 
@@ -33,11 +35,23 @@ class Siswa extends BaseController
         return view('siswa/v_biodatasiswa', $data);
     }
 
-    public function datasekolah()
+    public function listsekolah()
+    {
+        $data = [
+            'title' => 'SPONS',
+            'subtitle' => 'List Sekolah',
+            'schools' => $this->ModelSekolah->getSekolah()
+        ];
+        return view('siswa/v_listsekolah', $data);
+    }
+
+    public function datasekolah($id)
     {
         $data = [
             'title' => 'SPONS',
             'subtitle' => 'Data Sekolah',
+            'school' => $this->ModelSekolah->getSekolah($id),
+            'gelombangs' => $this->ModelGelombang->getGelombang($id)
         ];
         return view('siswa/v_datasekolah', $data);
     }
