@@ -33,10 +33,11 @@ class Admin extends BaseController
 
         $data = [
             'title' => 'Detail Sekolah',
+            'subtitle' => 'Detail Seklah',
             'school' => $data_sekolah
         ];
 
-        return view('admin/detail_sekolah', $data);
+        return view('admin/v_detail_sekolah', $data);
     }
 
     public function list_gelombang()
@@ -45,11 +46,12 @@ class Admin extends BaseController
         $data_gelombang = $this->ModelGelombang->getGelombang($id_sekolah);
 
         $data = [
-            'title' => 'Detail Sekolah',
+            'title' => 'Gelombang',
+            'subtitle' => 'Pendaftaran',
             'gelombang' => $data_gelombang
         ];
 
-        return view('admin/list_gelombang', $data);
+        return view('admin/v_list_gelombang', $data);
     }
 
     public function detail_gelombang($id_gelombang)
@@ -62,6 +64,6 @@ class Admin extends BaseController
             'gelombang' => $data_gelombang
         ];
 
-        return view('admin/detail_gelombang', $data);
+        return view('admin/v_detail_gelombang', $data);
     }
 }

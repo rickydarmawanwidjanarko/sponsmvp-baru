@@ -57,6 +57,7 @@ class Auth extends BaseController
             // Cek login sekolah
             $cek_login = $this->ModelAuth->login_sekolah($email, $password);
             if ($cek_login) {
+                session()->set('id_sekolah', $cek_login['id']);
                 session()->set('nama', $cek_login['nama']);
                 session()->set('email', $cek_login['email']);
                 session()->set('level', 'Admin');
