@@ -95,6 +95,15 @@ class Auth extends BaseController
         session()->remove('email');
         session()->remove('level');
         session()->setFlashdata('pesan', 'Logout Succses');
-        return redirect()->to(base_url('auth/login'));
+        return redirect()->to(base_url('auth/loginsiswa'));
+    }
+
+    public function logout_user()
+    {
+        session()->remove('nama');
+        session()->remove('email');
+        session()->remove('level');
+        session()->setFlashdata('pesan', 'Logout Succses');
+        return redirect()->to(base_url('auth/loginuser'));
     }
 }
