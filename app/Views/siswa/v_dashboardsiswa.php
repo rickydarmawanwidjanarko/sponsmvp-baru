@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('Siswa/datasekolah') ?>" class="nav-link">
+                            <a href="<?= base_url('Siswa/listekolah') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Data Sekolah
