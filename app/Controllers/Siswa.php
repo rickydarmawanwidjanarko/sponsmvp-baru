@@ -24,6 +24,33 @@ class Siswa extends BaseController
         return view('siswa/v_dashboardsiswa', $data);
     }
 
+    public function biodatasiswa()
+    {
+        $data = [
+            'title' => 'Biodata',
+            'subtitle' => 'Siswa',
+        ];
+        return view('siswa/v_biodatasiswa', $data);
+    }
+
+    public function datasekolah()
+    {
+        $data = [
+            'title' => 'SPONS',
+            'subtitle' => 'Data Sekolah',
+        ];
+        return view('siswa/v_datasekolah', $data);
+    }
+
+    public function riwayatpendaftaran()
+    {
+        $data = [
+            'title' => 'SPONS',
+            'subtitle' => 'Riwayat Pendaftaran',
+        ];
+        return view('siswa/v_riwayatpendaftaran', $data);
+    }
+
     public function get_sekolah()
     {
 

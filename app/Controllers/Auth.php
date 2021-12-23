@@ -19,7 +19,17 @@ class Auth extends BaseController
 
     public function login()
     {
+        echo view('v_login');
+    }
+
+    public function loginuser()
+    {
         echo view('v_login-user');
+    }
+
+    public function loginsiswa()
+    {
+        echo view('v_loginSiswa');
     }
 
     public function cek_login_user()
@@ -43,7 +53,7 @@ class Auth extends BaseController
             //valid
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-            
+
             // Cek login sekolah
             $cek_login = $this->ModelAuth->login_sekolah($email, $password);
             if ($cek_login) {
@@ -58,7 +68,7 @@ class Auth extends BaseController
                     session()->set('email', $cek_login['email']);
                     session()->set('level', 'Siswa');
                     return redirect()->to(base_url('Siswa'));
-                } else {   
+                } else {
                     session()->setFlashdata('pesan', 'User atau Password Salah !!!');
                     return redirect()->to(base_url('auth/login'));
                 }
@@ -71,6 +81,14 @@ class Auth extends BaseController
     }
 
     public function logout()
+    {
+        session()->remove('nama');
+        session()->remove('email');
+        session()->remove('level');
+        session()->setFlashdata('pesan', 'Logout Succses');
+        return redirect()->to(base_url('auth/login'));
+    }
+    public function logout_siswa()
     {
         session()->remove('nama');
         session()->remove('email');
