@@ -11,10 +11,11 @@ class Admin extends BaseController
 {
     public function __construct()
     {
+        helper('form');
         $this->ModelAdmin = new ModelAdmin();
         $this->ModelSekolah = new ModelSekolah();
         $this->ModelGelombang = new ModelGelombang();
-        helper('form');
+        $this->id_sekolah = session()->get('id_sekolah');
     }
 
     public function index()
@@ -28,8 +29,7 @@ class Admin extends BaseController
 
     public function profile()
     {
-        $id_sekolah = session()->get('id_sekolah');
-        $data_sekolah = $this->ModelSekolah->getSekolah($id_sekolah);
+        $data_sekolah = $this->ModelSekolah->getSekolah($this->id_sekolah);
 
         $data = [
             'title' => 'Detail Sekolah',
@@ -42,8 +42,7 @@ class Admin extends BaseController
 
     public function list_gelombang()
     {
-        $id_sekolah = session()->get('id_sekolah');
-        $data_gelombang = $this->ModelGelombang->getGelombang($id_sekolah);
+        $data_gelombang = $this->ModelGelombang->getGelombang($this->id_sekolah);
 
         $data = [
             'title' => 'Gelombang',
@@ -56,8 +55,7 @@ class Admin extends BaseController
 
     public function detail_gelombang($id_gelombang)
     {
-        $id_sekolah = session()->get('id_sekolah');
-        $data_gelombang = $this->ModelGelombang->getGelombang($id_sekolah, $id_gelombang);
+        $data_gelombang = $this->ModelGelombang->getGelombang($this->id_sekolah, $id_gelombang);
 
         $data = [
             'title' => 'Detail Sekolah',

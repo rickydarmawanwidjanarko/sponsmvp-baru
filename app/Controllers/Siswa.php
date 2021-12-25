@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelGelombang;
+use App\Models\ModelPendaftaran;
 use App\Models\ModelSiswa;
 use App\Models\ModelSekolah;
 
@@ -11,10 +12,12 @@ class Siswa extends BaseController
 {
     public function __construct()
     {
+        helper('form');
         $this->ModelSiswa = new ModelSiswa();
         $this->ModelSekolah = new ModelSekolah();
         $this->ModelGelombang = new ModelGelombang();
-        helper('form');
+        $this->ModelPendaftaran = new ModelPendaftaran();
+        $this->idSiswa = session()->get('id_siswa');
     }
 
     public function index()
@@ -58,9 +61,13 @@ class Siswa extends BaseController
 
     public function riwayatpendaftaran()
     {
+        $pendaftaran = $this->ModelPendaftaran->getPendaftaran($this->idSiswa);
+        $status = $this->ModelPendaftaran->getStatus();
         $data = [
             'title' => 'SPONS',
             'subtitle' => 'Riwayat Pendaftaran',
+            'pendaftarans' => $pendaftaran,
+            'status' => $status
         ];
         return view('siswa/v_riwayatpendaftaran', $data);
     }
@@ -80,13 +87,48 @@ class Siswa extends BaseController
 
     public function gelombang($id)
     {
-
         $gelombang = $this->ModelGelombang->getGelombang(null, $id);
+        $pendaftaran = $this->ModelPendaftaran->isDaftar($id, $this->idSiswa);
+        // echo "<prE>";
+        // echo "Jancok";
+        // echo $this->idSiswa;
+        // echo $id;
+        // print_r($pendaftaran);
+        // die;
         $data = [
             'title' => 'List Sekolah',
             'subtitle' => 'Dashboard',
-            'gelombang' => $gelombang
+            'gelombang' => $gelombang,
+            'pendaftaran' => $pendaftaran
         ];
         return view('siswa/v_gelombang', $data);
+    }
+
+    public function pendaftaran()
+    {
+        $idGelombang = $this->request->getPost('idgelombang');
+        $namaDokumen = '';
+        $fileDokumen = $this->request->getFile('dokumen');
+        $folder = 'dokumen/';
+
+        if (!empty($fileDokumen)) {
+            if ($fileDokumen->getError() == 4) {
+            } else {
+                $namaDokumen = $fileDokumen->getName();
+                $fileDokumen->move($folder, $namaDokumen);
+            }
+        }
+
+        $data = [
+            'idsiswa' => $this->idSiswa,
+            'idgelombang' => $idGelombang,
+            'waktu' => date('Y-m-d h:i"s'),
+            'dokumen' => $namaDokumen,
+            'status' => $this->ModelPendaftaran::DIAJUKAN
+        ];
+
+        $this->ModelPendaftaran->save($data);
+        session()->setFlashdata('pesan', 'Registrasi Berhasil');
+        return redirect()->to('Siswa/gelombang/' . $idGelombang);
     }
 }

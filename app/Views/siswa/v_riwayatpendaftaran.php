@@ -58,14 +58,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nama sekolah</td>
-                                            <td>Gelombang</td>
-                                            <td>Tanggal Daftar</td>
-                                            <td><span class="tag tag-success">Status</span></td>
-
-                                        </tr>
+                                        <?php
+                                        $no = 0;
+                                        foreach ($pendaftarans as $p) : ?>
+                                            <tr>
+                                                <td><?= ++$no ?></td>
+                                                <td><?= $p['namasekolah'] ?></td>
+                                                <td><?= $p['namagelombang'] ?></td>
+                                                <td><?= date('d M Y', strtotime($p['waktu'])) ?></td>
+                                                <td><?= $status[$p['status']] ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

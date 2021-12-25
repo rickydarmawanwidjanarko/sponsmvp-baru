@@ -65,6 +65,7 @@ class Auth extends BaseController
             } else {
                 $cek_login = $this->ModelAuth->login_siswa($email, $password);
                 if ($cek_login) {
+                    session()->set('id_siswa', $cek_login['id']);
                     session()->set('nama', $cek_login['nama']);
                     session()->set('email', $cek_login['email']);
                     session()->set('level', 'Siswa');

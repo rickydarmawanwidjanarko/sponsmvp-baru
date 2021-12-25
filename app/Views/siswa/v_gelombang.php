@@ -58,9 +58,20 @@
                                     <p><?= $gelombang['persyaratan'] ?></p>
                                 </div>
                             </div>
-                            <a href="/Admin/change">
-                                <button class="btn btn-warning" style="color:white">Edit profile</button>
-                            </a>
+                            <?php if (empty($pendaftaran)) : ?>
+                                <form action="/Siswa/pendaftaran" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" id="idgelombang" name="idgelombang" value="<?= $gelombang['id'] ?>">
+                                    <input type="file" id="dokumen" name="dokumen" class="form-control">
+                                    <br>
+                                    <button type="submit" class="btn btn-info form-group" style="color:white">Daftar</button>
+                                </form>
+                            <?php elseif ($pendaftaran['status'] == '0') : ?>
+                                <button class="btn btn-info"> Pendaftaran telah diajukan</button>
+                            <?php elseif ($pendaftaran['status'] == '1') :  ?>
+                                <button class="btn btn-success"> Anda telah diterima</button>
+                            <?php elseif ($pendaftaran['status'] == '2') :  ?>
+                                <button class="btn btn-danger"> Anda ditolak</button>
+                            <?php endif; ?>
                             <br>
                             <br>
                             <!--/row-->
