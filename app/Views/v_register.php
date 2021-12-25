@@ -75,7 +75,7 @@
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
-                        <?php echo form_open('Register/simpanPendaftaran') ?>
+                        <?php echo form_open_multipart('Register/simpanPendaftaran') ?>
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">

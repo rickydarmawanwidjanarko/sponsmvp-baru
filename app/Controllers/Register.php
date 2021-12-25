@@ -61,6 +61,21 @@ class Register extends BaseController
             ],
         ])) {
             //Jika Tidak ada validasi maka simpan data
+            $fileSampul = $this->request->getFile('logo');
+            $folder = 'img/sekolah';
+            $namaSampul = 'default.jpg';
+
+            if (!empty($fileSampul)){
+                if ($fileSampul->getError() == 4) {
+                    $namaSampul = 'default.jpg';
+                    // $fileSampul->move($folder);
+                } else {
+                    $namaSampul = $fileSampul->getRandomName();
+                    $fileSampul->move($folder, $namaSampul);
+                }
+            }
+    
+            
             $data = [
                 'nama' => $this->request->getPost('nama'),
                 'email' => $this->request->getPost('email'),
@@ -68,14 +83,18 @@ class Register extends BaseController
                 'password' => date('dmY'),
                 'no_telp' => $this->request->getPost('no_telp'),
                 'kota' => $this->request->getPost('kota'),
-                'logo' => $this->request->getPost('logo'),
+                'logo' => $namaSampul,
             ];
+            // die;
             $this->ModelRegister->insertData($data);
             session()->setFlashdata('pesan', 'Registrasi Berhasil, Silahkan hubungi Customer Service untuk mendapatkan password');
-            return redirect()->to('Auth/login');
+            return redirect()->to('Auth/loginuser');
         } else {
             //Jika ada validasi
             $validation =  \Config\Services::validation();
+            // echo "<pre>";
+            // print_r($validation);
+            // die;
             return redirect()->to('Register')->withInput()->with('validation', $validation);
         }
     }
