@@ -60,6 +60,7 @@ class Auth extends BaseController
                 session()->set('id_sekolah', $cek_login['id']);
                 session()->set('nama', $cek_login['nama']);
                 session()->set('email', $cek_login['email']);
+                session()->set('foto', $cek_login['logo']);
                 session()->set('level', 'Admin');
                 return redirect()->to(base_url('Admin'));
             } else {

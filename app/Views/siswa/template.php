@@ -47,15 +47,14 @@
                         <i class="fas fa-user"></i> <?= session()->get('nama') ?>
                     </a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="<?= base_url('Admin') ?>" class="dropdown-item">Biodata</a></li>
+                        <li><a href="<?= base_url('Siswa/biodatasiswa') ?>" class="dropdown-item">Biodata</a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a href="<?= base_url('Auth/logout_user') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a href="<?= base_url('Auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </li>
                 <!-- Navbar Search -->
 
             </ul>
-            <!-- Navbar Search -->
         </nav>
         <!-- /.navbar -->
 
@@ -69,10 +68,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="/img/sekolah/<?= session()->get('foto') ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('') ?>/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= session()->get('nama') ?></a>
+                        <a href="<?= base_url('Siswa') ?>" class="d-block"><?= session()->get('nama') ?></a>
                     </div>
                 </div>
 
@@ -84,7 +83,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="/Admin" class="nav-link">
+                            <a href="<?= base_url('Siswa') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -93,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Admin/profile" class="nav-link">
+                            <a href="<?= base_url('Siswa/listsekolah') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Data Sekolah
@@ -101,11 +100,12 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="/Admin/list_gelombang" class="nav-link">
+                            <a href="<?= base_url('Siswa/riwayatpendaftaran') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Gelombang
+                                    Riwayat Pendaftaran
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -119,12 +119,8 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-
             <?= $this->renderSection('content'); ?>
-            <!-- /.content -->
         </div>
-
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="#">AdminLTE.io</a>.</strong>
