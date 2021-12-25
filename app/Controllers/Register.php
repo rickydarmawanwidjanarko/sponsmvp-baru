@@ -63,11 +63,10 @@ class Register extends BaseController
             //Jika Tidak ada validasi maka simpan data
             $fileSampul = $this->request->getFile('logo');
             $folder = 'img/sekolah';
-            $namaSampul = 'default.jpg';
+            $namaSampul = 'default.png';
 
             if (!empty($fileSampul)){
                 if ($fileSampul->getError() == 4) {
-                    $namaSampul = 'default.jpg';
                     // $fileSampul->move($folder);
                 } else {
                     $namaSampul = $fileSampul->getRandomName();

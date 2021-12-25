@@ -36,45 +36,72 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-sm-3">
-                        <!-- Profile Image -->
-                        <div class="card card-primary card-outline">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle" src="<?= base_url('') ?>/AdminLTE/dist/img/user4-128x128.jpg" alt="User profile picture">
-                                </div>
+                    <div class="row row-offcanvas row-offcanvas-right">
 
-                                <h3 class="profile-username text-center"><?= $school['nama'] ?></h3>
+                        <div class="col-sm-9">
 
-                                <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item">
-                                        <b>Alamat</b> <a class="float-right"><?= $school['alamat'] ?></a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Kota</b> <a class="float-right"><?= $school['kota'] ?></a>
-                                    </li>
-                                    <!-- <li class="list-group-item">
-                                        <b>Gelombang</b> <a class="float-right">gelombang</a>
-                                    </li> -->
-                                </ul>
-
-                                <a href="" class="btn btn-primary btn-block"><b>Detail</b></a>
+                            <div class="jumbotron">
+                                <h1><?= $school['nama'] ?></h1>
                             </div>
-                            <!-- /.card-body -->
+                            <div class="row">
+                                <div class="col-sm-12 ">
+                                    <h2>Detail</h2>
+                                    <p><?= $school['detail'] ?></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h2>Kontak</h2>
+                                        <p><?= $school['no_telp'] ?></p>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h2>Email</h2>
+                                        <p><?= $school['email'] ?></p>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h2>Alamat</h2>
+                                        <p><?= $school['alamat'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/Admin/change">
+                                <button class="btn btn-warning" style="color:white">Edit profile</button>
+                            </a>
+                            <br>
+                            <br>
+                            <!--/row-->
                         </div>
-                        <!-- /.card -->
+                        <!--/span-->
+
                     </div>
-
-
+                    <!--/row-->
+                    <!-- ./col -->
                 </div>
-                
-                <!-- /.row -->
+                <div class="row">
+
+                    <?php foreach ($gelombangs as $gelombang) : ?>
+                        <div class="col-4" style="padding: 10px">
+                            <div class="card mb-3 ">
+                                <div class="card-body">
+                                    <h4 class="card-title"><b><?= $gelombang['nama'] ?></b></h4>
+                                    <p class="card-text"><?= date('d M Y', strtotime($gelombang['tglawal'])) . ' - ' . date('d M Y', strtotime($gelombang['tglakhir'])) ?></p>
+                                    <p class="card-text"><small class="text-muted"><?= $gelombang['detail'] ?></small></p>
+                                    <a href="/Siswa/gelombang/<?= $gelombang['id'] ?>">
+                                        <button class="btn btn-info">Lihat Detail</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div><!-- /.container-fluid -->
         </section>
-        <?php  foreach ($gelombangs as $gelombang) : ?>
-            
-        <?php endforeach; ?>
 
 
         <!-- /.content -->

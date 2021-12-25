@@ -29,49 +29,48 @@
         </section>
         <?php
         // echo "<pre>"; 
-        // print_r($schools);
+        // print_r($gelombangs);
         // die;
         ?>
 
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <?php  foreach ($schools as $school) : ?>
-                    <div class="col-sm-3">
-                        <!-- Profile Image -->
-                        <div class="card card-primary card-outline">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle" src="/img/sekolah/<?=$school['logo']?>" alt="User profile picture">
-                                </div>
+                    <div class="row row-offcanvas row-offcanvas-right" style="width: 100%;">
 
-                                <h3 class="profile-username text-center"><?= $school['nama'] ?></h3>
+                        <div class="col-9">
 
-                                <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item">
-                                        <b>Alamat</b> <br><a class=""><?= $school['alamat'] ?></a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Kota</b> <br><a class=""><?= $school['kota'] ?></a>
-                                    </li>
-                                    <!-- <li class="list-group-item">
-                                        <b>Gelombang</b> <a class="float-right">gelombang</a>
-                                    </li> -->
-                                </ul>
-
-                                <a href="/Siswa/datasekolah/<?= $school['id'] ?>" class="btn btn-primary btn-block"><b>Detail</b></a>
+                            <div class="jumbotron">
+                                <h1><?= $gelombang['nama'] ?></h1>
                             </div>
-                            <!-- /.card-body -->
+                            <div class="row">
+                                <div class="col-sm-12 ">
+                                    <h2>Detail</h2>
+                                    <p><?= $gelombang['detail'] ?></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 ">
+                                    <h2>Detail</h2>
+                                    <p><?= $gelombang['persyaratan'] ?></p>
+                                </div>
+                            </div>
+                            <a href="/Admin/change">
+                                <button class="btn btn-warning" style="color:white">Edit profile</button>
+                            </a>
+                            <br>
+                            <br>
+                            <!--/row-->
                         </div>
-                        <!-- /.card -->
+                        <!--/span-->
+
                     </div>
-
-                    <?php endforeach; ?>
-
-
+                    <!--/row-->
+                    <!-- ./col -->
                 </div>
-                <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>
 

@@ -14,7 +14,7 @@ class ModelGelombang extends Model
     public function getGelombang($idsekolah, $idgelombang = false)
     {
         if ($idgelombang != false) {
-            return $this->where(['idgelombang' => $idgelombang])->first();
+            return $this->where(['id' => $idgelombang])->first();
         }
 
 

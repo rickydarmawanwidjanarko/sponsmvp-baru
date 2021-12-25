@@ -77,4 +77,16 @@ class Siswa extends BaseController
         ];
         return view('siswa/sekolah', $data);
     }
+
+    public function gelombang($id)
+    {
+
+        $gelombang = $this->ModelGelombang->getGelombang(null, $id);
+        $data = [
+            'title' => 'List Sekolah',
+            'subtitle' => 'Dashboard',
+            'gelombang' => $gelombang
+        ];
+        return view('siswa/v_gelombang', $data);
+    }
 }
