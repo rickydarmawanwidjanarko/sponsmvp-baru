@@ -95,7 +95,7 @@
                             <a href="<?= base_url('Siswa/listsekolah') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Data Sekolah
+                                    List Sekolah
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>

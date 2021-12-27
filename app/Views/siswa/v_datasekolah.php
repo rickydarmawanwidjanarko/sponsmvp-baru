@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>List Sekolah</h1>
+                    <h1>Data Sekolah</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 ">
-                                <h2>Detail</h2>
+                                <h2>Profile Sekolah</h2>
                                 <p><?= $school['detail'] ?></p>
                             </div>
                         </div>
@@ -52,6 +52,10 @@
                         </div>
 
                         <br>
+                        <div class="col-sm-6">
+                            <h2>GELOMBANG</h2>
+                            </p>
+                        </div>
                         <!--/row-->
                     </div>
                     <!--/span-->

@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>List Sekolah</h1>
+                <h1>Persyaratan Pendaftaran</h1>
             </div>
         </div>
     </div><!-- /.container-fluid -->
@@ -28,15 +28,11 @@
                         <h1><?= $gelombang['nama'] ?></h1>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 ">
-                            <h2>Detail</h2>
-                            <p><?= $gelombang['detail'] ?></p>
-                        </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-12 ">
-                            <h2>Detail</h2>
+                            <h2>Upload File</h2>
                             <p><?= $gelombang['persyaratan'] ?></p>
                         </div>
                     </div>

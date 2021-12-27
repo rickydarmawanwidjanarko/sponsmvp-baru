@@ -67,7 +67,7 @@
                 <div class="col-8">
                     <div class="icheck-primary">
                         <i class="fa fa-globe"></i>
-                        <a href="<?= base_url() ?>" target="_blank">Website</a>
+                        <a href="<?= base_url() ?>">Website</a>
                     </div>
                 </div>
                 <!-- /.col -->

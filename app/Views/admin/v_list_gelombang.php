@@ -5,7 +5,8 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Daftar Gelombang Pendaftaran</h1>
+                <h1 class="m-0">Gelombang</h1>
+
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -17,14 +18,19 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <table class="table">
-            <thead class="table-dark">
+            <thead class="table-dark table-sm">
                 <tr>
-                    <th>No</th>
+                    <th width="70px">No</th>
                     <th>Nama</th>
                     <th>Tgl Awal</th>
                     <th>Tgl Akhir</th>
-                    <th>Jumlah Pendaftar</th>
-                    <th>Aksi</th>
+                    <th>Status</th>
+                    <th width="100px">Aksi</th>
+                    <div class="card-tools">
+                        <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
+                        <button class="btn btn-flat btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-edit"></i> Tambah Gelombang</button>
+                    </div>
+                    <br>
                 </tr>
             </thead>
             <tbody>
@@ -40,15 +46,58 @@
                             <td><?= $k['nama'] ?></td>
                             <td><?= $k['tglawal'] ?></td>
                             <td><?= $k['tglakhir'] ?></td>
-                            <td></td>
-                            <td>
-                                <a href="/Admin/data_gelombang/<?= $k['id'] ?>" class="btn btn-success">Detail</a>
+                            <td><?= ($k['status'] == 1) ? '<label class="badge badge-success">Aktif</label>' : '<label class="badge badge-danger">Tidak Aktif</label' ?></td>
+                            <td class="text-center"><?php if ($k['status'] == 1) { ?>
+                                    <a href="<?= base_url('gelombang/statusNonaktif/' . $k['id']) ?>" class="btn btn-danger btn-xs btn-flat">Nonaktifkan</a>
+                                <?php } else { ?>
+                                    <a href="<?= base_url('gelombang/statusAktif/' . $k['id']) ?>" class="btn btn-success btn-xs btn-flat">Aktifkan</a>
+                                <?php } ?>
                             </td>
                         </tr>
                 <?php endforeach;
                 endif; ?>
             </tbody>
         </table>
+
+        <!-- Modal Add -->
+        <div class="modal fade" id="add">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tambah Gelombang</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <?php echo form_open('gelombang/insertData') ?>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>No</label>
+                            <input name="no" class="form-control" placeholder="Nomor" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input name="nama" class="form-control" placeholder="Nama Gelombang" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Awal</label>
+                            <input name="tglawal" class="form-control" placeholder="Tanggal Awal" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Akhir</label>
+                            <input name="tglakhir" class="form-control" placeholder="Tanggal Akhir" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                    </div>
+                    <?php echo form_close() ?>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
 
         <!-- /.row -->
         <!-- Main row -->

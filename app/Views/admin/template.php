@@ -47,8 +47,6 @@
                         <i class="fas fa-user"></i> <?= session()->get('nama') ?>
                     </a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="<?= base_url('Admin') ?>" class="dropdown-item">Biodata</a></li>
-                        <li class="dropdown-divider"></li>
                         <li><a href="<?= base_url('Auth/logout_user') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </li>
@@ -106,6 +104,33 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Gelombang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/list_pendaftar" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    List Pendaftar
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/list_pendaftar" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    List Diterima
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/list_pendaftar" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    List Ditolak
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>

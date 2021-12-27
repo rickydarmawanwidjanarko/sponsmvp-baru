@@ -20,4 +20,38 @@ class ModelGelombang extends Model
 
         return $this->where(['idsekolah' => $idsekolah])->findAll();
     }
+
+    public function insertData($data)
+    {
+        $this->db->table('gelombang')
+            ->insert($data);
+    }
+
+    public function editData($data)
+    {
+        $this->db->table('gelombang')
+            ->where('id', $data['id'])
+            ->update($data);
+    }
+
+    public function deleteData($data)
+    {
+        $this->db->table('gelombang')
+            ->where('id', $data['id'])
+            ->delete($data);
+    }
+
+    public function resetStatus()
+    {
+        $this->db->table('gelombang')
+            ->update(['status' => 0]);
+    }
+
+    public function statusTa()
+    {
+        return $this->db->table('gelombang')
+            ->where('status', '1')
+            ->get()
+            ->getRowArray();
+    }
 }

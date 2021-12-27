@@ -67,13 +67,13 @@
                 <div class="col-8">
                     <div class="icheck-primary">
                         <i class="fa fa-globe"></i>
-                        <a href="<?= base_url() ?>" target="_blank">Website</a>
+                        <a href="<?= base_url() ?>">Website</a>
                     </div>
                 </div>
                 <div class="col-8">
                     <div class="icheck-primary">
                         <i class="fas fa-user-plus"></i>
-                        <a href="<?= base_url() ?>" target="_blank">Register</a>
+                        <a href="<?= base_url('RegisterSiswa') ?>">Register</a>
                     </div>
                 </div>
                 <!-- /.col -->

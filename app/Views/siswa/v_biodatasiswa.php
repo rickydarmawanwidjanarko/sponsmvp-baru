@@ -42,6 +42,9 @@
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Biodata Saya</h3>
+                                <div class="card-tools">
+                                    <a href="<?= base_url('Siswa/') ?>" class="btn btn-sm btn-primary btn-flat"><i class="fas fa-backward"> Kembali</i></a>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ModelGelombang;
 use App\Models\ModelAdmin;
 use App\Models\ModelSekolah;
+use App\Models\ModelPendaftaran;
 
 class Admin extends BaseController
 {
@@ -15,6 +16,7 @@ class Admin extends BaseController
         $this->ModelAdmin = new ModelAdmin();
         $this->ModelSekolah = new ModelSekolah();
         $this->ModelGelombang = new ModelGelombang();
+        $this->ModelPendaftaran = new ModelPendaftaran();
         $this->id_sekolah = session()->get('id_sekolah');
     }
 
@@ -51,6 +53,17 @@ class Admin extends BaseController
         ];
 
         return view('admin/v_list_gelombang', $data);
+    }
+
+    public function list_pendaftar()
+    {
+
+        $data = [
+            'title' => 'Gelombang',
+            'subtitle' => 'Pendaftaran',
+        ];
+
+        return view('admin/v_list_pendaftar', $data);
     }
 
     public function detail_gelombang($id_gelombang)
