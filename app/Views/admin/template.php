@@ -118,7 +118,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Admin/list_pendaftar" class="nav-link">
+                            <a href="/Admin/list_diterima" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     List Diterima
@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Admin/list_pendaftar" class="nav-link">
+                            <a href="/Admin/list_ditolak" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     List Ditolak
