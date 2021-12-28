@@ -28,7 +28,7 @@
                     <th width="100px">Aksi</th>
                     <div class="card-tools">
                         <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
-                        <button class="btn btn-flat btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-edit"></i> Tambah Gelombang</button>
+                        <button class="btn btn-flat btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-calendar-plus"></i> Tambah Gelombang</button>
                     </div>
                     <br>
                 </tr>
@@ -72,20 +72,26 @@
                     <?php echo form_open('gelombang/insertData') ?>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>No</label>
-                            <input name="no" class="form-control" placeholder="Nomor" required>
-                        </div>
-                        <div class="form-group">
                             <label>Nama</label>
                             <input name="nama" class="form-control" placeholder="Nama Gelombang" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form">
                             <label>Tanggal Awal</label>
-                            <input name="tglawal" class="form-control" placeholder="Tanggal Awal" required>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input name="tglawal" type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fas fa-calendar-week"></i>+</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form">
                             <label>Tanggal Akhir</label>
-                            <input name="tglakhir" class="form-control" placeholder="Tanggal Akhir" required>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input name="tglakhir" type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fas fa-calendar"></i>+</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">

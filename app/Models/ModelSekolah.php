@@ -19,4 +19,11 @@ class ModelSekolah extends Model
 
         return $this->where(['id' => $id])->first();
     }
+
+    public function editData($data)
+    {
+        $this->db->table('sekolah')
+            ->where('id', $data['id'])
+            ->update($data);
+    }
 }

@@ -35,7 +35,7 @@ class Admin extends BaseController
 
         $data = [
             'title' => 'Detail Sekolah',
-            'subtitle' => 'Detail Seklah',
+            'subtitle' => 'Detail Sekolah',
             'school' => $data_sekolah
         ];
 
@@ -57,10 +57,10 @@ class Admin extends BaseController
 
     public function list_pendaftar()
     {
-
         $data = [
-            'title' => 'Gelombang',
+            'title' => 'List',
             'subtitle' => 'Pendaftaran',
+
         ];
 
         return view('admin/v_list_pendaftar', $data);
@@ -76,5 +76,39 @@ class Admin extends BaseController
         ];
 
         return view('admin/v_detail_gelombang', $data);
+    }
+
+    public function editData($id)
+    {
+        $data = [
+            'id' => $id,
+            'nama' => $this->request->getPost('nama'),
+            'email' => $this->request->getPost('email'),
+            'detail' => $this->request->getPost('detail'),
+            'alamat' => $this->request->getPost('alamat'),
+            'no_telp' => $this->request->getPost('no_telp'),
+            'kota' => $this->request->getPost('kota'),
+        ];
+        $this->ModelSekolah->editData($data);
+        session()->setFlashdata('tambah', 'Data Berhasil Di Edit !!');
+        return redirect()->to('Admin/profile');
+    }
+
+    public function listDiterima()
+    {
+        $data = [
+            'title' => 'SPONS',
+            'subtitle' => 'Pendaftaran Diterima',
+        ];
+        return view('Admin/v_diterima', $data);
+    }
+
+    public function listDitolak()
+    {
+        $data = [
+            'title' => 'SPONS',
+            'subtitle' => 'Pendaftaran Ditolak',
+        ];
+        return view('Admin/v_ditolak', $data);
     }
 }

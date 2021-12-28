@@ -27,7 +27,9 @@
                     <th>Nomor Telpon</th>
                     <th>Jenis Kelamin</th>
                     <th>Email</th>
-                    <th width="100px">Aksi</th>
+                    <th>Gelombang</th>
+                    <th>Dokumen</th>
+                    <th>Status</th>
                     <div class="card-tools">
                         <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
                     </div>
@@ -50,10 +52,9 @@
                             <td>no telp siswa</td>
                             <td>JK siswa</td>
                             <td>Email siswa</td>
-                            <td>
-                                <a href="#" class="btn btn-flat btn-xs btn-success"><i class="fas fa-check"></i> Terima</a>
-                                <a href="#" class="btn btn-flat btn-xs btn-danger"><i class="fas fa-times "></i> Tolak</a>
-                            </td>
+                            <td>Gelombang</td>
+                            <td>Dokumen</td>
+                            <td>Ditolak</td>
                         </tr>
                 <?php endforeach;
                 endif; ?>
