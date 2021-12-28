@@ -101,6 +101,16 @@
                             <label>Kota</label>
                             <input name="kota" value="<?= $school['kota'] ?>" class="form-control" placeholder="Kota" required>
                         </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img id="gambar_load" class="img-fluid pad" src="#" width="250px" height="250px">
+                            </div>
+                            <div class="from-group">
+                                <br>
+                                <label>Ganti Foto</label>
+                                <input id="preview_gambar" name="logo" type="file" class="from-control" accept="image/*">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>

@@ -21,10 +21,11 @@
             <thead class="table-dark table-sm">
                 <tr>
                     <th width="70px">No</th>
-                    <th>Nama</th>
-                    <th>Tgl Awal</th>
-                    <th>Tgl Akhir</th>
-                    <th>Status</th>
+                    <th width="100px">Nama</th>
+                    <th width="100px">Tgl Awal</th>
+                    <th width="100px">Tgl Akhir</th>
+                    <th width="100px">Detail</th>
+                    <th width="100px">Status</th>
                     <th width="100px">Aksi</th>
                     <div class="card-tools">
                         <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
@@ -46,12 +47,15 @@
                             <td><?= $k['nama'] ?></td>
                             <td><?= $k['tglawal'] ?></td>
                             <td><?= $k['tglakhir'] ?></td>
+                            <td><?= $k['detail'] ?></td>
                             <td><?= ($k['status'] == 1) ? '<label class="badge badge-success">Aktif</label>' : '<label class="badge badge-danger">Tidak Aktif</label' ?></td>
-                            <td class="text-center"><?php if ($k['status'] == 1) { ?>
+                            <td class="text-left"><?php if ($k['status'] == 1) { ?>
                                     <a href="<?= base_url('gelombang/statusNonaktif/' . $k['id']) ?>" class="btn btn-danger btn-xs btn-flat">Nonaktifkan</a>
                                 <?php } else { ?>
                                     <a href="<?= base_url('gelombang/statusAktif/' . $k['id']) ?>" class="btn btn-success btn-xs btn-flat">Aktifkan</a>
                                 <?php } ?>
+                                <a href="#" class="btn btn-success btn-xs btn-flat">Edit</a>
+                                <a href="#" class="btn btn-danger btn-xs btn-flat">Delete</a>
                             </td>
                         </tr>
                 <?php endforeach;
