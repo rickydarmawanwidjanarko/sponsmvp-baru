@@ -83,6 +83,7 @@ class Register extends BaseController
                 'no_telp' => $this->request->getPost('no_telp'),
                 'kota' => $this->request->getPost('kota'),
                 'logo' => $namaSampul,
+                'kuota' => 5
             ];
             // die;
             $this->ModelRegister->insertData($data);
