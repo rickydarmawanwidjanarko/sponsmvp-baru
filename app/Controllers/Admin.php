@@ -58,6 +58,20 @@ class Admin extends BaseController
         return view('admin/v_detail_sekolah', $data);
     }
 
+    public function edit_sekolah()
+    {
+        $data_sekolah = $this->ModelSekolah->getSekolah($this->id_sekolah);
+
+        $data = [
+            'title' => 'Detail Sekolah',
+            'subtitle' => 'Detail Sekolah',
+            'school' => $data_sekolah,
+            'validation' => \Config\Services::validation(),
+        ];
+
+        return view('admin/v_edit_sekolah', $data);
+    }
+
     public function list_gelombang()
     {
         $data_gelombang = $this->ModelGelombang->getGelombang($this->id_sekolah);
@@ -177,5 +191,55 @@ class Admin extends BaseController
     {
         $data = $this->ModelPendaftaran->find($id);
         return $this->response->download('dokumen/' . $data['dokumen'], null);
+    }
+
+
+    public function update_sekolah()
+    {
+        $id = $this->id_sekolah;
+
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+            ],
+            'logo' => [
+                'rules' => 'max_size[logo,1024]|is_image[logo]|mime_in[logo,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang Anda pilih bukan gambar',
+                    'mime_in' => 'Yang Anda pilih bukan gambar'
+                ]
+            ]
+        ])) {
+            return redirect()->to('Admin/edit_sekolah/' . $id)->withInput();
+        }
+
+        $fileSampul = $this->request->getFile('logo');
+        $folder = 'img/sekolah';
+        $data = [
+            'id' => $id,
+            'nama' => $this->request->getPost('nama'),
+            'email' => $this->request->getPost('email'),
+            'alamat' => $this->request->getPost('alamat'),
+            'password' => $this->request->getPost('password'),
+            'no_telp' => $this->request->getPost('no_telp'),
+            'kota' => $this->request->getPost('kota')
+        ];
+
+        if (!empty($fileSampul)) {
+            if ($fileSampul->getError() == 4) {
+                // $fileSampul->move($folder);
+            } else {
+                $namaSampul = $fileSampul->getRandomName();
+                $fileSampul->move($folder, $namaSampul);
+                $data['logo'] = $namaSampul;
+            }
+        }
+
+        $this->ModelSekolah->save($data);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah');
+        session()->set('foto', $data['logo']);
+        return redirect()->to('/Admin/profile');
     }
 }

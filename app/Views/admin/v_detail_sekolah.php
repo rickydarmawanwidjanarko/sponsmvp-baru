@@ -51,7 +51,9 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-flat btn-warning btn-lg" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i>Edit</button>
+                    <a href="/Admin/edit_sekolah">
+                        <button class="btn btn-flat btn-warning btn-lg"><i class="fas fa-edit"></i>Edit</button>
+                    </a>
 
                     <br>
                     <br>
