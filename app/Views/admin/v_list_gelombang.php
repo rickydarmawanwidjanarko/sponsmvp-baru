@@ -16,6 +16,12 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <?php
+        if (session()->getFlashdata('pesan')) {
+            echo '<div class="alert alert-success" role="alert">';
+            echo session()->getFlashdata('pesan');
+            echo '</div>';
+        } ?>
         <!-- Small boxes (Stat box) -->
         <table class="table">
             <thead class="table-dark table-sm">
@@ -25,11 +31,13 @@
                     <th width="100px">Tgl Awal</th>
                     <th width="100px">Tgl Akhir</th>
                     <th width="100px">Detail</th>
+                    <th width="100px">Persyaratan</th>
                     <th width="100px">Status</th>
                     <th width="100px">Aksi</th>
                     <div class="card-tools">
-                        <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
-                        <button class="btn btn-flat btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-calendar-plus"></i> Tambah Gelombang</button>
+                        <a href="/Admin/create_gelombang">
+                            <button class="btn btn-flat btn-success btn-sm"><i class="fa fa-plus"></i> Tambah Gelombang</button>
+                        </a>
                     </div>
                     <br>
                 </tr>
@@ -38,8 +46,6 @@
 
                 <?php
                 $i = 1;
-                // print_r($gelombang);
-                // die;
                 if (!empty($gelombang)) :
                     foreach ($gelombang as $k) : ?>
                         <tr>
@@ -47,15 +53,20 @@
                             <td><?= $k['nama'] ?></td>
                             <td><?= $k['tglawal'] ?></td>
                             <td><?= $k['tglakhir'] ?></td>
-                            <td><?= $k['detail'] ?></td>
+                            <td>
+                                <pre style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0"><?= $k['detail'] ?></pre>
+                            </td>
+                            <td>
+                                <pre style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0"><?= $k['persyaratan'] ?></pre>
+                            </td>
                             <td><?= ($k['status'] == 1) ? '<label class="badge badge-success">Aktif</label>' : '<label class="badge badge-danger">Tidak Aktif</label' ?></td>
                             <td class="text-left"><?php if ($k['status'] == 1) { ?>
                                     <a href="<?= base_url('gelombang/statusNonaktif/' . $k['id']) ?>" class="btn btn-danger btn-xs btn-flat">Nonaktifkan</a>
                                 <?php } else { ?>
                                     <a href="<?= base_url('gelombang/statusAktif/' . $k['id']) ?>" class="btn btn-success btn-xs btn-flat">Aktifkan</a>
                                 <?php } ?>
-                                <a href="#" class="btn btn-success btn-xs btn-flat">Edit</a>
-                                <a href="#" class="btn btn-danger btn-xs btn-flat">Delete</a>
+                                <a href="/Admin/edit_gelombang/<?= $k['id'] ?>" class="btn btn-success btn-xs btn-flat">Edit</a>
+                                <a href="/Gelombang/delete/<?= $k['id'] ?>" class="btn btn-danger btn-xs btn-flat">Delete</a>
                             </td>
                         </tr>
                 <?php endforeach;
