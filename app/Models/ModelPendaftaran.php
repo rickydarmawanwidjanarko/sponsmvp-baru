@@ -76,6 +76,15 @@ class ModelPendaftaran extends Model
             ->countAllResults();
     }
 
+    public function getJumlahMendaftar($idsiswa, $idstatus = false)
+    {
+
+        return $this->db->table('pendaftaran')
+            ->where('idsiswa', $idsiswa)
+            ->where('status', $idstatus)
+            ->countAllResults();
+    }
+
 
     public function isDaftar($idgelombang, $idsiswa)
     {
