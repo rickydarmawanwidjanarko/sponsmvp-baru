@@ -17,13 +17,13 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="row row-offcanvas row-offcanvas-right">
+            <div class="row col-sm-12">
 
                 <div class="col-xs-12 col-sm-1"></div>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
 
-                    <div class="jumbotron">
-                        <h1><?= $school['nama'] ?></h1>
+                    <div class="jumbotron jumbotron-fluid">
+                        <h1 class="display-4"> <?= $school['nama'] ?></h1>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 ">

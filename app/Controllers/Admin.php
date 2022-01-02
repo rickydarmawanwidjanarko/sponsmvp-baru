@@ -67,29 +67,16 @@ class Admin extends BaseController
         return view('admin/v_list_pendaftar', $data);
     }
 
-    public function create_gelombang()
+    public function detail_gelombang($id_gelombang)
     {
+        $data_gelombang = $this->ModelGelombang->getGelombang($this->id_sekolah, $id_gelombang);
 
         $data = [
-            'title' => 'SPONS',
-            'subtitle' => 'Gelombang',
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('Admin/v_create_gelombang', $data);
-    }
-
-    public function edit_gelombang($id)
-    {
-        $data_gelombang = $this->ModelGelombang->getGelombang($this->id_sekolah, $id);
-        $data = [
-            'title' => 'SPONS',
-            'subtitle' => 'Gelombang',
-            'validation' => \Config\Services::validation(),
+            'title' => 'Detail Sekolah',
             'gelombang' => $data_gelombang
         ];
 
-        return view('Admin/v_edit_gelombang', $data);
+        return view('admin/v_detail_gelombang', $data);
     }
 
     public function editData($id)
