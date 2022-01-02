@@ -13,9 +13,16 @@
 </div>
 <!-- /.content-header -->
 
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <?php
+        if (session()->getFlashdata('pesan')) {
+            echo '<div class="alert alert-success" role="alert">';
+            echo session()->getFlashdata('pesan');
+            echo '</div>';
+        } ?>
         <!-- Small boxes (Stat box) -->
         <table class="table">
             <thead class="table-dark table-sm">
@@ -27,32 +34,32 @@
                     <th>Nomor Telpon</th>
                     <th>Jenis Kelamin</th>
                     <th>Email</th>
+                    <th>Gelombang</th>
+                    <th>Waktu Daftar</th>
+                    <th>Dokumen</th>
                     <th width="100px">Aksi</th>
-                    <div class="card-tools">
-                        <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
-                    </div>
-                    <br>
                 </tr>
             </thead>
             <tbody>
 
                 <?php
                 $i = 1;
-                // print_r($gelombang);
-                // die;
                 if (!empty($siswa)) :
                     foreach ($siswa as $l) : ?>
                         <tr>
                             <td><?= $i++; ?></th>
-                            <td>nama siswa</td>
-                            <td>tanggal lahir siswa</td>
-                            <td>alamat siswa</td>
-                            <td>no telp siswa</td>
-                            <td>JK siswa</td>
-                            <td>Email siswa</td>
+                            <td><?= $l['namasiswa'] ?></td>
+                            <td><?= $l['tgl_lahir'] ?></td>
+                            <td><?= $l['alamat'] ?></td>
+                            <td><?= $l['no_telp'] ?></td>
+                            <td><?= $l['jk'] ?></td>
+                            <td><?= $l['email'] ?></td>
+                            <td><?= $l['namagelombang'] ?></td>
+                            <td><?= $l['waktu'] ?></td>
+                            <td><a href="/Admin/download/<?= $l['idpendaftaran'] ?>"><?= $l['dokumen'] ?> </a></td>
                             <td>
-                                <a href="#" class="btn btn-flat btn-xs btn-success"><i class="fas fa-check"></i> Terima</a>
-                                <a href="#" class="btn btn-flat btn-xs btn-danger"><i class="fas fa-times "></i> Tolak</a>
+                                <a href="/Admin/accept/<?= $l['idpendaftaran'] ?>" class="btn btn-flat btn-xs btn-success"><i class="fas fa-check"></i> Terima</a>
+                                <a href="/Admin/reject/<?= $l['idpendaftaran'] ?>" class="btn btn-flat btn-xs btn-danger"><i class="fas fa-times "></i> Tolak</a>
                             </td>
                         </tr>
                 <?php endforeach;

@@ -28,11 +28,9 @@
                     <th>Jenis Kelamin</th>
                     <th>Email</th>
                     <th>Gelombang</th>
+                    <th>Waktu Daftar</th>
                     <th>Dokumen</th>
                     <th>Status</th>
-                    <div class="card-tools">
-                        <a href="<?= base_url('Admin') ?>" class="btn btn-sm btn-primary btn-flat"> Kembali</a>
-                    </div>
                     <br>
                 </tr>
             </thead>
@@ -40,21 +38,20 @@
 
                 <?php
                 $i = 1;
-                // print_r($gelombang);
-                // die;
                 if (!empty($siswa)) :
                     foreach ($siswa as $l) : ?>
                         <tr>
                             <td><?= $i++; ?></th>
-                            <td>nama siswa</td>
-                            <td>tanggal lahir siswa</td>
-                            <td>alamat siswa</td>
-                            <td>no telp siswa</td>
-                            <td>JK siswa</td>
-                            <td>Email siswa</td>
-                            <td>Gelombang</td>
-                            <td>Dokumen</td>
-                            <td>Ditolak</td>
+                            <td><?= $l['namasiswa'] ?></td>
+                            <td><?= $l['tgl_lahir'] ?></td>
+                            <td><?= $l['alamat'] ?></td>
+                            <td><?= $l['no_telp'] ?></td>
+                            <td><?= $l['jk'] ?></td>
+                            <td><?= $l['email'] ?></td>
+                            <td><?= $l['namagelombang'] ?></td>
+                            <td><?= $l['waktu'] ?></td>
+                            <td><a href="/Admin/download/<?= $l['idpendaftaran'] ?>"><?= $l['dokumen'] ?> </a></td>
+                            <td>DITOLAK</td>
                         </tr>
                 <?php endforeach;
                 endif; ?>

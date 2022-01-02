@@ -57,10 +57,11 @@ class Admin extends BaseController
 
     public function list_pendaftar()
     {
+        $pendaftar = $this->ModelPendaftaran->getPendaftar($this->id_sekolah, false, '3');
         $data = [
             'title' => 'List',
             'subtitle' => 'Pendaftaran',
-
+            'siswa' => $pendaftar
         ];
 
         return view('admin/v_list_pendaftar', $data);
@@ -96,19 +97,56 @@ class Admin extends BaseController
 
     public function listDiterima()
     {
+        $pendaftar = $this->ModelPendaftaran->getPendaftar($this->id_sekolah, false, '1');
         $data = [
             'title' => 'SPONS',
             'subtitle' => 'Pendaftaran Diterima',
+            'siswa' => $pendaftar
+
         ];
         return view('Admin/v_diterima', $data);
     }
 
     public function listDitolak()
     {
+        $pendaftar = $this->ModelPendaftaran->getPendaftar($this->id_sekolah, false, '2');
         $data = [
             'title' => 'SPONS',
             'subtitle' => 'Pendaftaran Ditolak',
+            'siswa' => $pendaftar
         ];
         return view('Admin/v_ditolak', $data);
+    }
+
+    public function accept($id)
+    {
+        $data = [
+            'id' => $id,
+            'status' => $this->ModelPendaftaran::DITERIMA
+        ];
+
+        $this->ModelPendaftaran->save($data);
+
+        session()->setFlashdata('pesan', 'Pendaftar telah diterima');
+        return redirect()->to(base_url('Admin/list_pendaftar'));
+    }
+
+    public function reject($id)
+    {
+        $data = [
+            'id' => $id,
+            'status' => $this->ModelPendaftaran::DITOLAK
+        ];
+
+        $this->ModelPendaftaran->save($data);
+
+        session()->setFlashdata('pesan', 'Pendaftar telah ditolak');
+        return redirect()->to(base_url('Admin/list_pendaftar'));
+    }
+
+    public function download($id)
+    {
+        $data = $this->ModelPendaftaran->find($id);
+        return $this->response->download('dokumen/' . $data['dokumen'], null);
     }
 }

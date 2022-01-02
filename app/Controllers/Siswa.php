@@ -89,12 +89,7 @@ class Siswa extends BaseController
     {
         $gelombang = $this->ModelGelombang->getGelombang(null, $id);
         $pendaftaran = $this->ModelPendaftaran->isDaftar($id, $this->idSiswa);
-        // echo "<prE>";
-        // echo "Jancok";
-        // echo $this->idSiswa;
-        // echo $id;
-        // print_r($pendaftaran);
-        // die;
+        
         $data = [
             'title' => 'List Sekolah',
             'subtitle' => 'Dashboard',

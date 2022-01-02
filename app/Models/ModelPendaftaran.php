@@ -8,7 +8,7 @@ class ModelPendaftaran extends Model
 {
     protected $table            = 'pendaftaran';
     protected $useTimestamps    = false;
-
+    protected $primaryKey       = 'id';
     protected $allowedFields    = ['idsiswa', 'idgelombang', 'waktu', 'dokumen', 'status'];
 
     const DIAJUKAN = '0';
@@ -19,7 +19,8 @@ class ModelPendaftaran extends Model
     {
         parent::__construct();
 
-        $this->baseQuery = "SELECT p.*, 
+        $this->baseQuery = "SELECT p.*, pd.*,
+        p.id as idpendaftaran,
         s.nama as namasekolah, 
         g.nama as namagelombang,
         pd.nama as namasiswa 
@@ -41,6 +42,29 @@ class ModelPendaftaran extends Model
 
         $sql .= " where p.idsiswa = ?";
         return $this->db->query($sql, [$idsiswa])->getResultArray();
+    }
+
+    public function getPendaftar($idsekolah, $idgelombang = false, $idstatus = false)
+    {
+        $sql = $this->baseQuery;
+        $sql .= " where 1=1";
+        if ($idsekolah != false) {
+            $sql .= " and g.idsekolah = " . $idsekolah;
+        }
+
+        if ($idstatus != false) {
+            if ($idstatus == '3')
+                $sql .= " and p.status = '0'";
+            else
+                $sql .= " and p.status = " . $idstatus;
+        }
+
+        if ($idgelombang != false) {
+            $sql .= " and g.idgelombang = " . $idgelombang;
+        }
+
+        $sql .= " order by p.waktu desc";
+        return $this->db->query($sql)->getResultArray();
     }
 
     public function isDaftar($idgelombang, $idsiswa)
