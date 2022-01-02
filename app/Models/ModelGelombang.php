@@ -54,4 +54,11 @@ class ModelGelombang extends Model
             ->get()
             ->getRowArray();
     }
+
+    public function getJumlah($idsekolah)
+    {
+        return $this->db->table('gelombang')
+            ->where('idsekolah', $idsekolah)
+            ->countAllResults();
+    }
 }

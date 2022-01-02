@@ -67,6 +67,16 @@ class ModelPendaftaran extends Model
         return $this->db->query($sql)->getResultArray();
     }
 
+    public function getJumlahPendaftar($gelombangs, $idstatus = false)
+    {
+
+        return $this->db->table('pendaftaran')
+            ->whereIn('idgelombang', $gelombangs)
+            ->where('status', $idstatus)
+            ->countAllResults();
+    }
+
+
     public function isDaftar($idgelombang, $idsiswa)
     {
         return $this->where(['idsiswa' => $idsiswa, 'idgelombang' => $idgelombang])->first();

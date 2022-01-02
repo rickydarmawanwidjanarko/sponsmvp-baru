@@ -22,9 +22,25 @@ class Admin extends BaseController
 
     public function index()
     {
+        $gelombangs = array();
+        $data_gelombang = $this->ModelGelombang->getGelombang($this->id_sekolah);
+        foreach ($data_gelombang as $k => $v) {
+            $gelombangs[] = $v['id'];
+        }
+        $data_sekolah = $this->ModelSekolah->getSekolah($this->id_sekolah);
+        $jml_gelombang = $this->ModelGelombang->getJumlah($this->id_sekolah);
+        $jml_pendaftar = $this->ModelPendaftaran->getJumlahPendaftar($gelombangs, '0');
+        $jml_diterima = $this->ModelPendaftaran->getJumlahPendaftar($gelombangs, '1');
+        $jml_ditolak = $this->ModelPendaftaran->getJumlahPendaftar($gelombangs, '2');
+
         $data = [
             'title' => 'SPONS',
             'subtitle' => 'Dashboard',
+            'jml_gelombang' => $jml_gelombang,
+            'jml_pendaftar' => $jml_pendaftar,
+            'jml_diterima' => $jml_diterima,
+            'jml_ditolak' => $jml_ditolak,
+            'sekolah' => $data_sekolah,
         ];
         return view('admin/v_dashboard', $data);
     }
