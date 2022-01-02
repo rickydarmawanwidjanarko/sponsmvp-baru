@@ -54,6 +54,7 @@
                         <br>
                         <div class="col-sm-6">
                             <h2>GELOMBANG</h2>
+                            <p>Saat Ini Kami Membuka Gelombang :</p>
                             </p>
                         </div>
                         <!--/row-->
