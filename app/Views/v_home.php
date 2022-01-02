@@ -239,13 +239,15 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
                             <div class="member-img">
-                                <img src="<?= base_url('Template') ?>/assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                                <img src="<?= base_url('Template') ?>/assets/img/team/user_fahmi.jpg" class="img-fluid" alt="">
 
                             </div>
                             <div class="member-info">
                                 <h4>Fahmi Akbar</h4>
                                 <span>Project Manager</span>
-                                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                                <p>NRP : 191116016<br>
+                                    Prodi : Teknik Informatika</p><br>
+                                <p><b>STIKI - MALANG</b></p>
                             </div>
                         </div>
                     </div>
@@ -253,13 +255,15 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="member">
                             <div class="member-img">
-                                <img src="<?= base_url('Template') ?>/assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                                <img src="<?= base_url('Template') ?>/assets/img/team/user_ricky.jpg" class="img-fluid" alt="">
 
                             </div>
                             <div class="member-info">
                                 <h4>Ricky Darmawan Widjanarko</h4>
                                 <span>Web Development</span>
-                                <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                                <p>NRP : 191116003<br>
+                                    Prodi : Teknik Informatika</p><br>
+                                <p><b>STIKI - MALANG</b></p>
                             </div>
                         </div>
                     </div>
@@ -267,13 +271,15 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                         <div class="member">
                             <div class="member-img">
-                                <img src="<?= base_url('Template') ?>/assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                                <img src="<?= base_url('Template') ?>/assets/img/team/user_romi.jpg" class="img-fluid" alt="">
 
                             </div>
                             <div class="member-info">
                                 <h4>Romy Setya Kusuma Hadi</h4>
                                 <span>Design Graphic</span>
-                                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                                <p>NRP : 191116019<br>
+                                    Prodi : Teknik Informatika</p><br>
+                                <p><b>STIKI - MALANG</b></p>
                             </div>
                         </div>
                     </div>
@@ -281,13 +287,15 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                         <div class="member">
                             <div class="member-img">
-                                <img src="<?= base_url('Template') ?>/assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                                <img src="<?= base_url('Template') ?>/assets/img/team/user_rizaldi.jpg" class="img-fluid" alt="">
 
                             </div>
                             <div class="member-info">
                                 <h4>Rizaldi Hermawan</h4>
                                 <span>UI/UX Designer</span>
-                                <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
+                                <p>NRP : 191116013<br>
+                                    Prodi : Teknik Informatika</p><br>
+                                <p><b>STIKI - MALANG</b></p>
                             </div>
                         </div>
                     </div>
