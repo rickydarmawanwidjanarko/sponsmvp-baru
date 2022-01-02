@@ -28,12 +28,24 @@
                         <h1><?= $gelombang['nama'] ?></h1>
                     </div>
                     <div class="row">
+                        <div class="col-12">
+
+                            <p>
+                            <pre style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0"><?= $gelombang['detail'] ?></pre>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>
+                            <pre style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0"><?= $gelombang['persyaratan'] ?></pre>
+                            </p>
+                        </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-12 ">
                             <h2>Upload File</h2>
-                            <p><?= $gelombang['persyaratan'] ?></p>
                         </div>
                     </div>
                     <?php if (empty($pendaftaran)) : ?>

@@ -89,7 +89,7 @@ class Siswa extends BaseController
     {
         $gelombang = $this->ModelGelombang->getGelombang(null, $id);
         $pendaftaran = $this->ModelPendaftaran->isDaftar($id, $this->idSiswa);
-        
+
         $data = [
             'title' => 'List Sekolah',
             'subtitle' => 'Dashboard',
@@ -102,6 +102,7 @@ class Siswa extends BaseController
     public function pendaftaran()
     {
         $idGelombang = $this->request->getPost('idgelombang');
+        $gelombang = $this->ModelGelombang->getGelombang(false, $idGelombang);
         $namaDokumen = '';
         $fileDokumen = $this->request->getFile('dokumen');
         $folder = 'dokumen/';
@@ -123,6 +124,7 @@ class Siswa extends BaseController
         ];
 
         $this->ModelPendaftaran->save($data);
+        $this->ModelSekolah->decreaseKuota($gelombang['idsekolah']);
         session()->setFlashdata('pesan', 'Registrasi Berhasil');
         return redirect()->to('Siswa/gelombang/' . $idGelombang);
     }

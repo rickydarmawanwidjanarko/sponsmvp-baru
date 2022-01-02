@@ -26,4 +26,15 @@ class ModelSekolah extends Model
             ->where('id', $data['id'])
             ->update($data);
     }
+
+    public function decreaseKuota($idsekolah)
+    {
+        $data = $this->where(['id' => $idsekolah])->first();
+        $newData = [
+            'kuota' => (int)$data['kuota'] - 1
+        ];
+        $this->db->table('sekolah')
+            ->where('id', $idsekolah)
+            ->update($newData);
+    }
 }

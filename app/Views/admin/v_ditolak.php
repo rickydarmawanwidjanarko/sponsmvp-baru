@@ -43,13 +43,13 @@
                         <tr>
                             <td><?= $i++; ?></th>
                             <td><?= $l['namasiswa'] ?></td>
-                            <td><?= $l['tgl_lahir'] ?></td>
+                            <td><?= date('d M Y', strtotime($l['tgl_lahir'])) ?></td>
                             <td><?= $l['alamat'] ?></td>
                             <td><?= $l['no_telp'] ?></td>
                             <td><?= $l['jk'] ?></td>
                             <td><?= $l['email'] ?></td>
                             <td><?= $l['namagelombang'] ?></td>
-                            <td><?= $l['waktu'] ?></td>
+                            <td><?= date('d M Y', strtotime($l['waktu'])) ?></td>
                             <td><a href="/Admin/download/<?= $l['idpendaftaran'] ?>"><?= $l['dokumen'] ?> </a></td>
                             <td>DITOLAK</td>
                         </tr>

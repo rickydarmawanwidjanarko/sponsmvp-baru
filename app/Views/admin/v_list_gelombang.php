@@ -51,8 +51,8 @@
                         <tr>
                             <td><?= $i++; ?></th>
                             <td><?= $k['nama'] ?></td>
-                            <td><?= $k['tglawal'] ?></td>
-                            <td><?= $k['tglakhir'] ?></td>
+                            <td><?= date('d M Y', strtotime($k['tglawal'])) ?></td>
+                            <td><?= date('d M Y', strtotime($k['tglakhir'])) ?></td>
                             <td>
                                 <pre style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0"><?= $k['detail'] ?></pre>
                             </td>

@@ -2,7 +2,6 @@
 <?= $this->section('content'); ?>
 
 <div class="content">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row">
@@ -10,13 +9,11 @@
                     <h1>Data Sekolah</h1>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
 
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
             <div class="row" style="width: 100%;">
                 <div class="row" style="width: 100%">
 
@@ -52,37 +49,34 @@
                         </div>
 
                         <br>
-                        <div class="col-sm-6">
-                            <h2>GELOMBANG</h2>
-                            <p>Saat Ini Kami Membuka Gelombang :</p>
-                            </p>
-                        </div>
-                        <!--/row-->
+                        <?php if (!empty($gelombangs) && $school['kuota'] > 0) : ?>
+                            <div class="col-sm-6">
+                                <h2>GELOMBANG</h2>
+                                <p>Saat Ini Kami Membuka Gelombang :</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                    <!--/span-->
-
                 </div>
-                <!--/row-->
-                <!-- ./col -->
             </div>
-            <div class="row">
-
-                <?php foreach ($gelombangs as $gelombang) : ?>
-                    <div class="col-4" style="padding: 10px">
-                        <div class="card mb-3 ">
-                            <div class="card-body">
-                                <h4 class="card-title"><b><?= $gelombang['nama'] ?></b></h4>
-                                <p class="card-text"><?= date('d M Y', strtotime($gelombang['tglawal'])) . ' - ' . date('d M Y', strtotime($gelombang['tglakhir'])) ?></p>
-                                <p class="card-text"><small class="text-muted"><?= $gelombang['detail'] ?></small></p>
-                                <a href="/Siswa/gelombang/<?= $gelombang['id'] ?>">
-                                    <button class="btn btn-info">Lihat Detail</button>
-                                </a>
+            <?php if (!empty($gelombangs) && $school['kuota'] > 0) : ?>
+                <div class="row">
+                    <?php foreach ($gelombangs as $gelombang) : ?>
+                        <div class="col-4" style="padding: 10px">
+                            <div class="card mb-3 ">
+                                <div class="card-body">
+                                    <h4 class="card-title"><b><?= $gelombang['nama'] ?></b></h4>
+                                    <p class="card-text"><?= date('d M Y', strtotime($gelombang['tglawal'])) . ' - ' . date('d M Y', strtotime($gelombang['tglakhir'])) ?></p>
+                                    <p class="card-text"><small class="text-muted"><?= $gelombang['detail'] ?></small></p>
+                                    <a href="/Siswa/gelombang/<?= $gelombang['id'] ?>">
+                                        <button class="btn btn-info">Lihat Detail</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div><!-- /.container-fluid -->
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
     </section>
 </div>
 <?= $this->endSection(); ?>
