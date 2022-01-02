@@ -22,9 +22,18 @@ class Siswa extends BaseController
 
     public function index()
     {
+        $jml_sekolah = $this->ModelSekolah->countAll();
+        $jml_pendaftar = $this->ModelPendaftaran->getJumlahMendaftar($this->idSiswa, '0');
+        $jml_diterima = $this->ModelPendaftaran->getJumlahMendaftar($this->idSiswa, '1');
+        $jml_ditolak = $this->ModelPendaftaran->getJumlahMendaftar($this->idSiswa, '2');
+
         $data = [
             'title' => 'SPONS',
             'subtitle' => 'Dashboard',
+            'jml_sekolah' => $jml_sekolah,
+            'jml_pendaftar' => $jml_pendaftar,
+            'jml_diterima' => $jml_diterima,
+            'jml_ditolak' => $jml_ditolak,
         ];
         return view('siswa/v_dashboardsiswa', $data);
     }
