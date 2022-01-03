@@ -9,7 +9,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url('') ?>/AdminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -82,31 +82,26 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
+                        <li class="nav-item has-treeview">
                             <a href="<?= base_url('Siswa') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item has-treeview">
                             <a href="<?= base_url('Siswa/listsekolah') ?>" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    List Sekolah
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>List Sekolah</p>
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item has-treeview">
                             <a href="<?= base_url('Siswa/riwayatpendaftaran') ?>" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     Riwayat Pendaftaran
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
@@ -123,7 +118,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="#">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2022 <a href="<?= base_url('') ?>">SPONS</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.1.0

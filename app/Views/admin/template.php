@@ -9,7 +9,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url('') ?>/AdminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -87,52 +87,46 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Admin/profile" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Data Sekolah
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Admin/list_gelombang" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-chart-line"></i>
                                 <p>
                                     Gelombang
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Admin/list_pendaftar" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon ion ion-person-add"></i>
                                 <p>
                                     List Pendaftar
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="listDiterima" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon far fa-check-square"></i>
                                 <p>
                                     List Diterima
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="listDitolak" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-times"></i>
                                 <p>
                                     List Ditolak
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
@@ -153,7 +147,7 @@
 
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="#">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2022 <a href="<?= base_url('') ?>">SPONS</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.1.0
