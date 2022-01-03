@@ -43,7 +43,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="<?= base_url('') ?>" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png">
+
                 <span>Spons</span>
             </a>
 

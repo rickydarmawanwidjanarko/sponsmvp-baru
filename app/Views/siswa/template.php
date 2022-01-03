@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<?= base_url('Template') ?>/assets/img/logo.png" rel="icon">
     <title><?= $title ?> | <?= $subtitle ?></title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -33,7 +34,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="<?= base_url('') ?>/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="<?= base_url('') ?>/AdminLTE/dist/img/AdminLTELogo.png" alt="SponsLogo" height="60" width="60">
         </div>
 
         <!-- Navbar -->
