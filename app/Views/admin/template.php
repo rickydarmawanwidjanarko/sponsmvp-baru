@@ -116,7 +116,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="listDiterima" class="nav-link">
+                            <a href="admin/listDiterima" class="nav-link">
                                 <i class="nav-icon far fa-check-square"></i>
                                 <p>
                                     List Diterima
@@ -124,7 +124,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="listDitolak" class="nav-link">
+                            <a href="admin/listDitolak" class="nav-link">
                                 <i class="nav-icon fas fa-times"></i>
                                 <p>
                                     List Ditolak
