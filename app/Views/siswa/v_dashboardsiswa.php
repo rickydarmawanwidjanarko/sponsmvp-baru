@@ -57,7 +57,7 @@
                     <div class="icon">
                         <i class="far fa-check-square"></i>
                     </div>
-                    <a href="#" class="small-box-footer"></i></a>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -72,7 +72,7 @@
                     <div class="icon">
                         <i class="fas fa-times"></i>
                     </div>
-                    <a href="#" class="small-box-footer"></a>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
