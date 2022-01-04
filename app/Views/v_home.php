@@ -275,7 +275,7 @@
 
                             </div>
                             <div class="member-info">
-                                <h4>Romy Setya Kusuma Hadi</h4>
+                                <h4>Romi Setya Kusuma Hadi</h4>
                                 <span>Design Graphic</span>
                                 <p>NRP : 191116019<br>
                                     Prodi : Teknik Informatika</p><br>
