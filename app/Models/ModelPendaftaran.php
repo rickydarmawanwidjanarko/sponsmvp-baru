@@ -69,11 +69,13 @@ class ModelPendaftaran extends Model
 
     public function getJumlahPendaftar($gelombangs, $idstatus = false)
     {
-
-        return $this->db->table('pendaftaran')
-            ->whereIn('idgelombang', $gelombangs)
-            ->where('status', $idstatus)
-            ->countAllResults();
+        if (!empty($gelombangs)) {
+            return $this->db->table('pendaftaran')
+                ->whereIn('idgelombang', $gelombangs)
+                ->where('status', $idstatus)
+                ->countAllResults();
+        }
+        return 0;
     }
 
     public function getJumlahMendaftar($idsiswa, $idstatus = false)
